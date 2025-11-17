@@ -1,12 +1,25 @@
 <?php
-$serverName = "CIJM\SQLCIDJ"; //serverName\instanceName
-$connectionInfo = array( "Database"=>"dbGestionTickets", "UID"=>"sa", "PWD"=>"Cesba2025");
-$conn = sqlsrv_connect( $serverName, $connectionInfo);
+use PDO;
+use PDOException;
 
-if( $conn ) {
-     echo "Conexión establecida.<br />";
-}else{
-     echo "La conexión no pudo ser establecida.<br />";
-     die( print_r( sqlsrv_errors(), true));
+class CDatabase {
+
+     function ConexionDB(){
+          private $host='localhost';
+          private $db    = 'dbGestionTickets';
+          private $user  = 'sa';
+          private $pass  = 'Cesba2025';
+          private $charset    = 'utf8mb4';
+          private $pdo   = 1433;
+
+          try{
+               $conn = new PDO("sqlsrv:Server=$host,$puerto");
+               echo "Se conecto correctamente a la base de datos";
+          }
+          catch(PDOException $exp){
+               echo ("No se logró conectar correctamente con la base de datos: $db, error:$exp");
+          }
+          return $conn;
+     }
 }
 ?>
