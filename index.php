@@ -1,14 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conexion de PHP con SQL server</title>
-</head>
-<body>
-    <?php 
-        include_once("Database.php");
-        CDatabase::ConexionDB();
-    ?>
-</body>
-</html>
+<?php
+require 'models/Database.php';
+
+//Obtener lista de usuarios
+try {
+    $stmt = $pdo->query('SELECT * FROM users ORDER BY id ASC');
+
+} catch(PDOException $e)
+{
+
+}
+?>
+
+<h1>Lista de Usuarios</h1>
+<a href="create.php"><button>Agregar Usuarios</button></a>
+
+<div class="table-container">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th>Acciones</th>
+        </tr>
+        <?php
+        ?>
+    </table>
+</div>
