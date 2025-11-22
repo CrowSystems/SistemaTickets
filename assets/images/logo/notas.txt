@@ -1,0 +1,11 @@
+Protocolos que se deben conocer para las redes.
+FTP
+SMTP
+SSH
+DNS
+DHCP
+HTTP
+HTTPS
+POP3
+del puerto 0 al 1024 se consideran puertos publicos, tanto TCP y UDP (Cualquier servicio los pueden utilizar. )
+del pueto 1025 al 35000, son puertos privados, 
