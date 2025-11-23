@@ -1,0 +1,28 @@
+--Listar todos los registros por sucursal
+CREATE PROCEDURE SP_L_CLIENTE_01
+@EMP_ID INT
+AS
+BEGIN
+    SELECT * FROM TM_CLIENTE
+    WHERE
+    EMP_ID = @EMP_ID
+    AND EST=1
+END
+
+--oBTENER REGISTRO DE ID
+CREATE PROCEDURE SP_L_CLIENTE_02
+@CLI_ID INT
+AS 
+BEGIN
+    SELECT * FROM TM_CLIENTE
+    WHERE
+    CLI_ID = @CLI_ID
+END
+
+--Eliminar Registro
+
+--
+
+--
+
+--
