@@ -1,3 +1,12 @@
+<?php
+    require_once("config/conexion.php");
+    if(isset($_POST["enviar"]) and $_POST[""]=="si"){
+        require_once("models/Usuario.php");
+        $usuario = new Usuario();
+        $usuario->login();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,15 +32,15 @@
                     <h1 class="auth-title">Inicio de sesión</h1>
                     <p class="auth-subtitle mb-5">Ingresa con la información de tu usuario</p>
 
-                    <form action="index.html">
+                    <form action="" method="post" id="login_form">
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="text" class="form-control form-control-xl" placeholder="Usuario">
+                            <input type="text" class="form-control form-control-xl" name="usu_correo" id="usu_correo" placeholder="Correo">
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" class="form-control form-control-xl" placeholder="Contraseña">
+                            <input type="password" class="form-control form-control-xl" name="usu_pass" id="usu_pass" placeholder="Contraseña">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
@@ -42,7 +51,8 @@
                                 Recuerdame
                             </label>
                         </div>
-                        <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Iniciar</button>
+                        <input type="hidden" name="enviar" class="form-control" value="si">
+                        <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" type="submit">Iniciar</button>
                     </form>
                     <div class="text-center mt-5 text-lg fs-4">
                         <p class="text-gray-600">¿No estas registrado? <a href="auth-register.html"
@@ -54,7 +64,6 @@
             </div>
             <div class="col-lg-7 d-none d-lg-block">
                 <div id="auth-right">
-
                 </div>
             </div>
         </div>
