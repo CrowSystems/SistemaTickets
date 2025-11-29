@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <title>Sistema de Tickets | HOME </title>
-    <?php require_once("") ?>
+    <?php require_once("./views/html/head.php"); ?>
 </head>
 
 <body>
@@ -421,7 +421,6 @@
     </div>
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-
     <script src="assets/js/main.js"></script>
 </body>
 </html>
