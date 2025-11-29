@@ -1,9 +1,9 @@
 <?php
-    class Categoria extends Conectar{
+    class Rol extends Conectar{
         // TODO: Listar Registros
-        public function get_categoria_x_suc_id($suc_id){
+        public function get_rol_x_suc_id($suc_id){
             $conectar=parent::Conexion();
-            $sql="SP_L_CATEGORIA_01 ?";
+            $sql="SP_L_ROL_01 ?";
             $query=$conectar->prepare($sql);
             $query->bindValue(1,$suc_id);
             $query->execute();
@@ -11,42 +11,42 @@
         }
 
         // TODO: Listar Registo por ID en especifico
-        public function get_categoria_x_cat_id($cat_id){
+        public function get_rol_x_rol_id($rol_id){
             $conectar=parent::Conexion();
-            $sql="SP_L_CATEGORIA_02 ?";
+            $sql="SP_L_ROL_02 ?";
             $query=$conectar->prepare($sql);
-            $query->bindValue(1,$cat_id);
+            $query->bindValue(1,$rol_id);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
         // TODO: Eliminar o cambiar estado a eliminado
-        public function delete_categoria($cat_id){
+        public function delete_rol($rol_id){
             $conectar=parent::Conexion();
-            $sql="SP_D_CATEGORIA_01";
+            $sql="SP_D_ROL_01";
             $query=$conectar->prepare($sql);
-            $query->bindValue(1,$cat_id);
+            $query->bindValue(1,$rol_id);
             $query->execute();
         }
 
         // TODO: Registro de datos
-        public function insert_categoria($suc_id,$cat_nom){
+        public function insert_rol($suc_id,$rol_nom){
             $conectar=parent::Conexion();
             $sql="SP_I_UNIDAD_01 ?,?";
             $query=$conectar->prepare($sql);
             $query->bindValue(1,$suc_id);
-            $query->bindValue(2,$cat_nom);
+            $query->bindValue(2,$rol_nom);
             $query->execute();
         }
 
         // TODO: Actualizar Datos
-        public function update_categoria($cat_id,$suc_id,$cat_nom){
+        public function update_rol($rol_id,$suc_id,$rol_nom){
             $conectar=parent::Conexion();
             $sql="SP_I_UNIDAD_01 ?,?,?";
             $query=$conectar->prepare($sql);
-            $query->bindValue(1,$cat_id);
+            $query->bindValue(1,$rol_id);
             $query->bindValue(2,$suc_id);
-            $query->bindValue(3,$cat_nom);
+            $query->bindValue(3,$rol_nom);
             $query->execute();
         }
     }
